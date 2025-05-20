@@ -7,10 +7,10 @@ CORS(app)  # ✅ This allows requests from the browser
 
 @app.route("/predict", methods=["POST"])
 def predict():
-    if "file" not in request.files:
+    if "image" not in request.files:
         return jsonify({"error": "No file uploaded"}), 400
 
-    file = request.files["file"]
+    file = request.files["image"]
     if file.filename == "":
         return jsonify({"error": "No selected file"}), 400
 
